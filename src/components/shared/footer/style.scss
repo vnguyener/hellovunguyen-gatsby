@@ -1,0 +1,51 @@
+.find-me {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0 auto;
+    font-size: 15px;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    padding-top: 100px;
+}
+
+.icon-link {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 0px 10px;
+
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+    
+    .icon-link-logo {
+        height: 50px;
+        width: auto;
+        background-position-x: center !important;
+
+        &.github {
+            background: url(../../../images/icons/GitHub-Mark-32px.png);
+            background-repeat: no-repeat;
+            &.light {
+                background: url(../../../images/icons/GitHub-Mark-Light-32px.png);
+                background-repeat: no-repeat;
+
+            }
+        }
+
+        &.linkedin {
+            background: url(../../../images/icons//LI-In-Bug.png);
+            background-repeat: no-repeat;
+            height: 50px;
+            width: 40px;
+            background-size: contain;
+            place-self: center;
+            &.light {
+                background: url(../../../images/icons//linkedin-3-32.png);
+                background-repeat: no-repeat;
+            }
+        }
+    }
+}

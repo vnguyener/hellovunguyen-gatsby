@@ -1,0 +1,103 @@
+.self-doodle-container {
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  height: 400px;
+  width: 300px;
+
+  &.vertical {
+    position: relative;
+    place-self: center;
+    margin: 0 auto;
+  }
+
+  .self-doodle {
+    &.open {
+      &.dark {
+        background: url(../../../images/shared/open_dark.png);
+        background-repeat: no-repeat;
+        height: -webkit-fill-available;
+        width: -webkit-fill-available;
+        background-size: contain;
+      }
+      &.light {
+          background: url(../../../images/shared/open_light.png);
+          background-repeat: no-repeat;
+          height: -webkit-fill-available;
+          width: -webkit-fill-available;
+          background-size: contain;
+      }
+    }
+
+    &.blink {
+      &.dark {
+        background: url(../../../images/shared/blink_dark.png);
+        background-repeat: no-repeat;
+        height: -webkit-fill-available;
+        width: -webkit-fill-available;
+        background-size: contain;
+      }
+      &.light {
+          background: url(../../../images/shared/blink_light.png);
+          background-repeat: no-repeat;
+          height: -webkit-fill-available;
+          width: -webkit-fill-available;
+          background-size: contain;
+      }
+    }
+  }
+
+  .trapezoid {
+    display: inline-block;
+    overflow: hidden;
+    margin: 0 3em;
+    width: 10em;
+    height: 8.66em;
+    transform: rotate(40deg);
+    position: absolute;
+    bottom: 25px;
+    right: 17px;
+    border-radius: 50px;
+
+    &:before {
+      display: block;
+      background: linear-gradient(0deg, #ffffe6 0%, #ffffb300 100%);
+      -webkit-mask-image: linear-gradient(180deg, transparent 20%, #ffffb347 100%);
+      mask-image: linear-gradient(180deg, transparent 20%, #ffffb3 100%);
+      content: '';
+      width: inherit;
+      height: 50%;
+      transform: skewX(-30deg) rotate(-60deg) translate(-1.25em);
+    }
+  }
+  
+
+  .circle {
+    height: 55px;
+    width: 55px;
+    display: inline-block;
+    overflow: hidden;
+    border-radius: 50px;
+
+    &.left {
+      position: absolute;
+      bottom: 203px;
+      right: 158px;
+    }
+
+    &.right {
+      position: absolute;
+      bottom: 203px;
+      right: 90px;
+    }
+    &:before {
+      display: block;
+      content: '';
+      width: inherit;
+      height: 100%;
+      background: linear-gradient(0deg, #ffffe6 0%, #ffffb300 100%);
+      -webkit-mask-image: linear-gradient(180deg, transparent 20%, #ffffb347 100%);
+      mask-image: linear-gradient(180deg, transparent 20%, #ffffb3 100%);
+    }
+  }
+}
