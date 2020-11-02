@@ -1,22 +1,60 @@
-import React from "react"
-import { Link } from "gatsby"
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
+// @flow
+import React, { useEffect, useState } from "react";
+import { CssBaseline, createMuiTheme } from "@material-ui/core";
+import { ThemeProvider } from "@material-ui/styles";
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link> <br />
-    <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-  </Layout>
-)
+// routes
+import HomePage from "../components/containers/home";
 
-export default IndexPage
+// shared
+import SEO from "../components/shared/seo"
+import LightSwitch from '../components/shared/light-switch';
+import Footer from "../components/shared/footer";
+import '../assets/index.scss';
+import type { Element } from 'react';
+
+const darkTheme = createMuiTheme({
+  palette: {
+    type: "dark",
+  },
+});
+
+const lightTheme = createMuiTheme({
+  palette: {
+    type: "light"
+  }
+});
+
+const IndexPage = (): Element<any> => {
+  const [isLightOff, setIsLightOff] = useState(localStorage.getItem("theme") ? JSON.parse(localStorage.getItem("theme") || '{}') : false);
+
+  const getTheme = (res) => {
+    setIsLightOff(res);
+  };
+
+  useEffect(() => {
+    const listener = (e) => {
+      if (e.storageArea === localStorage && e.key === "theme") {
+        setIsLightOff(JSON.parse(e.newValue));
+      }
+    };
+
+    window.addEventListener("storage", listener);
+    return () => {
+      window.removeEventListener("storage", listener);
+    };
+  }, []);
+
+  return (
+    <ThemeProvider theme={isLightOff ? darkTheme : lightTheme}>
+      <SEO title="Home" />
+      <CssBaseline />
+      <LightSwitch onSwitch={getTheme} />
+      <HomePage />
+      <Footer />
+    </ThemeProvider>
+  );
+};
+
+export default IndexPage;

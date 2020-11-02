@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@import url('https://fonts.googleapis.com/css?family=Lora|Karl');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap');
+
+$font-color: #000;
+$dark-font-color: #FFF;
+$background-color: #FFF;
+
+body, html {
+  width: 100%;
+  height: 100%;
+  font-family: 'Lora', serif;
+  font-size: 18px;
+}
+
+body {
+  color: $font-color;
+  background-color: $background-color;
+}
+
+.md-padding {
+  padding: 16px;
+}
+
+
+.layout-row {
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+}
+
+.layout-column {
+  flex-direction: column;
+}
+
+.layout-row, .layout-column {
+  box-sizing: border-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.layout-align-center-center, .layout-align-end-center, .layout-align-space-around-center, .layout-align-space-between-center, .layout-align-start-center {
+  align-items: center;
+  align-content: center;
+  max-width: 100%;
+  justify-content: center;
+}
+
+.page {
+  padding: 5pc 0;
+}
+
+.root-container {
+  max-width: 650px;
+  padding: 0 20px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.article-page {
+  margin-top: 15px;
+  font-size: 18px;
+
+  .introduction, h1, h2, h3, h4, ol, p, pre, ul {
+    margin-bottom: 20px;
+  }
+
+  .introduction {
+    font-size: 22px;
+  }
+
+  #post-content {
+    margin-bottom: 50px;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: $font-color;
+  &:hover {
+    color: $font-color;
+  }
+
+  &:visited {
+    color: $font-color;
+  }
+
+  &:active {
+    color: $font-color;
+  }
+}
+
+.dark {
+  a {
+    text-decoration: none;
+    color: $dark-font-color;
+    &:hover {
+      color: $dark-font-color;
+    }
+  
+    &:visited {
+      color: $dark-font-color;
+    }
+  
+    &:active {
+      color: $dark-font-color;
+    }
+  }
+}
