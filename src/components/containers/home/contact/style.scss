@@ -1,0 +1,22 @@
+#contact-section {
+    display: flex;
+    width: 100%;
+    background: #fff;
+    margin: 0 auto;
+    margin-left: -8px;
+    min-height: 300px;
+}
+
+#contact-section p {
+    font-family: 'Roboto', sans-serif;
+    text-align: justify;
+    color: #FFF;
+    font-size: 2pc;
+    padding: 0 100px;
+    font-weight: bold;
+}
+
+#contact-section a {
+    color: #26A69A;
+    text-decoration: none;
+}

@@ -1,0 +1,31 @@
+pre.code {
+    font-family: Menlo,monospace;
+    font-size: 87.5%;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 16px;
+    padding-right: 16px;
+    border-left: 4px solid;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    display: block;
+}
+
+.introduction {
+    margin-bottom: 20px;
+    font-size: 22px;
+}
+
+.large-header {
+    font-size: 56px;
+    font-weight: 400;
+    letter-spacing: -0.005em;
+    line-height: 56px;
+    margin-bottom: -15px;
+}
+
+.red {
+    color: #EF5350;
+}
