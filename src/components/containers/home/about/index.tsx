@@ -1,13 +1,13 @@
-import React, { useState } from "react"
-import { useTheme } from "@material-ui/core"
-import moment from "moment"
-import "./style.scss"
+import React, { useState } from "react";
+import { useTheme } from "@material-ui/core";
+import moment from "moment";
+import "./style.scss";
 
 const About = () => {
-  const theme = useTheme()
-  const highlightClass = `highlight ${theme.palette.type}`
-  const [position] = useState("Senior Software Engineer")
-  const [experience] = useState(moment().diff("2013-09-17", "years"))
+  const theme = useTheme();
+  const highlightClass = `highlight ${theme.palette.type}`;
+  const [position] = useState("Senior Software Engineer");
+  const [experience] = useState(moment().diff("2013-09-17", "years"));
 
   return (
     <div className="article-page">
@@ -47,7 +47,7 @@ const About = () => {
         out UI/UX, creating custom components, and spinning it up really fast.
       </pre>
     </div>
-  )
-}
+  );
+};
 
-export default About
+export default About;

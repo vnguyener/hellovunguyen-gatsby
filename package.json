@@ -12,7 +12,7 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "aws:deploy": "aws s3 sync build/ s3://hellovunguyen.com --delete",
+    "aws:deploy": "aws s3 sync public/ s3://hellovunguyen.com --delete",
     "aws:clear": "aws cloudfront create-invalidation --distribution-id=E22ISNR3Q0E4MP --paths /*"
   },
   "dependencies": {
@@ -37,6 +37,7 @@
     "gatsby-transformer-sharp": "^2.5.21",
     "node-sass": "^5.0.0",
     "prettier": "2.1.2",
+    "sass": "^1.29.0",
     "sass-loader": "10.0.5",
     "tslint": "^6.1.3",
     "tslint-react": "^5.0.0"

@@ -1,14 +1,14 @@
-import React from "react"
-import PropTypes from "prop-types"
-import "./style.scss"
-import { TypeWriterProps } from "../../../types"
+import React from "react";
+import PropTypes from "prop-types";
+import "./style.scss";
+import { TypeWriterProps } from "../../../types";
 
 const TypeWriter = ({ text }: TypeWriterProps) => {
-  return <span className="typewriter">{text}</span>
-}
+  return <span className="typewriter">{text}</span>;
+};
 
 TypeWriter.propTypes = {
   text: PropTypes.string,
-}
+};
 
-export default TypeWriter
+export default TypeWriter;

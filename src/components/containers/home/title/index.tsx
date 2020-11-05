@@ -1,31 +1,31 @@
-import React, { useState, useEffect, useRef } from "react"
-import Typography from "@material-ui/core/Typography"
-import "./style.scss"
+import React, { useState, useEffect, useRef } from "react";
+import Typography from "@material-ui/core/Typography";
+import "./style.scss";
 
-import TypeWriter from "../../../shared/type-writer"
+import TypeWriter from "../../../shared/type-writer";
 
 function useInterval(callback: () => void, delay: number) {
-  const savedCallback = useRef(null)
+  const savedCallback = useRef(null);
 
   // Remember the latest callback.
   useEffect(() => {
     if (savedCallback) {
-      savedCallback.current = callback
+      savedCallback.current = callback;
     }
-  }, [callback])
+  }, [callback]);
 
   // Set up the interval.
   useEffect(() => {
     function tick() {
       if (savedCallback && typeof savedCallback.current === "function") {
-        savedCallback.current()
+        savedCallback.current();
       }
     }
     if (delay !== null) {
-      const id = setInterval(tick, delay)
-      return () => clearInterval(id)
+      const id = setInterval(tick, delay);
+      return () => clearInterval(id);
     }
-  }, [delay, savedCallback])
+  }, [delay, savedCallback]);
 }
 
 const Title = () => {
@@ -43,25 +43,25 @@ const Title = () => {
     "I like to doodle.",
     "I'm browsing Reddit.",
     "I'm pouring coffee (that I'll forget to drink)",
-  ]
+  ];
 
-  const [title, setTitle] = useState("")
-  const [index, setIndex] = useState(0)
+  const [title, setTitle] = useState("");
+  const [index, setIndex] = useState(0);
 
   useInterval(() => {
-    let intervalIndex = index
-    changeTitle(titles[index])
-    setIndex(intervalIndex++)
+    let intervalIndex = index;
+    changeTitle(titles[index]);
+    setIndex(intervalIndex++);
 
     if (index >= titles.length) {
-      changeTitle("I'm a Software Engineer")
-      setIndex(0)
+      changeTitle("I'm a Software Engineer");
+      setIndex(0);
     }
-  }, 750)
+  }, 750);
 
   const changeTitle = title => {
-    setTitle(title)
-  }
+    setTitle(title);
+  };
 
   return (
     <div className="writing-heading">
@@ -70,7 +70,7 @@ const Title = () => {
       </Typography>
       <TypeWriter text={`and ${title}`} />
     </div>
-  )
-}
+  );
+};
 
-export default Title
+export default Title;

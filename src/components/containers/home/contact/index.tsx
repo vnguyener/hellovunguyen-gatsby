@@ -1,8 +1,8 @@
-import React from "react"
-import "./style.scss"
+import React from "react";
+import "./style.scss";
 
 const Contact = () => {
-  return <section id="contact-section" />
-}
+  return <section id="contact-section" />;
+};
 
-export default Contact
+export default Contact;

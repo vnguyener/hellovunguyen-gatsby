@@ -1,10 +1,10 @@
-import React from "react"
-import { useTheme } from "@material-ui/core"
-import "./style.scss"
+import React from "react";
+import { useTheme } from "@material-ui/core";
+import "./style.scss";
 
 const SharedFooter = () => {
-  const theme = useTheme()
-  const themeType = theme.palette.type
+  const theme = useTheme();
+  const themeType = theme.palette.type;
 
   return (
     <div
@@ -39,7 +39,7 @@ const SharedFooter = () => {
         </a>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default SharedFooter
+export default SharedFooter;

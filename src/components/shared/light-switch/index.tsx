@@ -1,11 +1,11 @@
-import React from "react"
-import Switch from "@material-ui/core/Switch"
-import { withStyles } from "@material-ui/core/styles"
-import { blueGrey } from "@material-ui/core/colors"
+import React from "react";
+import Switch from "@material-ui/core/Switch";
+import { withStyles } from "@material-ui/core/styles";
+import { blueGrey } from "@material-ui/core/colors";
 
-import useLocalStorageState from "@v/uselocalStorageState"
+import useLocalStorageState from "@v/uselocalStorageState";
 
-import "./style.scss"
+import "./style.scss";
 
 const StyledSwitch = withStyles({
   switchBase: {
@@ -19,15 +19,15 @@ const StyledSwitch = withStyles({
   },
   checked: {},
   track: {},
-})(Switch)
+})(Switch);
 
 const LightSwitch = ({ onSwitch }) => {
-  const [isLightOff, setIsLightOff] = useLocalStorageState("theme", false)
+  const [isLightOff, setIsLightOff] = useLocalStorageState("theme", false);
 
   const handleLightSwitch = event => {
-    setIsLightOff(event.target.checked)
-    onSwitch(event.target.checked)
-  }
+    setIsLightOff(event.target.checked);
+    onSwitch(event.target.checked);
+  };
 
   return (
     <div className="lightswitch-container">
@@ -53,7 +53,7 @@ const LightSwitch = ({ onSwitch }) => {
         inputProps={{ "aria-label": "dark light mode switch" }}
       />
     </div>
-  )
-}
+  );
+};
 
-export default LightSwitch
+export default LightSwitch;

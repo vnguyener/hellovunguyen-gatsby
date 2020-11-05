@@ -1,10 +1,10 @@
-import React from "react"
-import { useTheme } from "@material-ui/core/styles"
-import "./style.scss"
+import React from "react";
+import { useTheme } from "@material-ui/core/styles";
+import "./style.scss";
 
 const Skills = () => {
-  const theme = useTheme()
-  const highlightClass = `highlight ${theme.palette.type}`
+  const theme = useTheme();
+  const highlightClass = `highlight ${theme.palette.type}`;
 
   return (
     <div className="">
@@ -101,7 +101,7 @@ const Skills = () => {
         </ul>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Skills
+export default Skills;
