@@ -17,17 +17,15 @@ const SelfDoodle = () => {
   };
 
   useEffect(() => {
-    let timeout = setTimeout(
+    const timeout = setTimeout(
       () => setSelfDoodleType(selfDoodleType === "open" ? "blink" : "open"),
       selfDoodleType === "open" ? randomSecond(1, 6) : 700
     );
 
     return () => {
       clearTimeout(timeout);
-    }
+    };
   }, [selfDoodleType]);
-
-  console.log('matchesSmall', matchesSmall)
 
   return (
     <div
