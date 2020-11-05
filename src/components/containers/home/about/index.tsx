@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { useTheme } from "@material-ui/core";
-import moment from 'moment'
+import moment from 'moment';
 import './style.scss';
 
 const About = () => { 

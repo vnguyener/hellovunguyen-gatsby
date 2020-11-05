@@ -1,8 +1,8 @@
 import React from 'react';
 import { useTheme } from "@material-ui/core";
-import About from './about'
-import Title from './title'
-import Skills from './skills'
+import About from './about';
+import Title from './title';
+import Skills from './skills';
 import SelfDoodle from "../../shared/doodle";
 import './style.scss';
 

@@ -7,7 +7,7 @@ import { ThemeProvider } from "@material-ui/styles";
 import HomePage from "../components/containers/home";
 
 // shared
-import SEO from "../components/shared/seo"
+import SEO from "../components/shared/seo";
 import LightSwitch from '../components/shared/light-switch';
 import Footer from "../components/shared/footer";
 import '../assets/index.scss';
@@ -27,12 +27,12 @@ const lightTheme = createMuiTheme({
 const IndexPage = () => {
   const [isLightOff, setIsLightOff] = useState(localStorage.getItem("theme") ? JSON.parse(localStorage.getItem("theme") || '{}') : false);
 
-  const getTheme = (res) => {
+  const getTheme = (res: boolean) => {
     setIsLightOff(res);
   };
 
   useEffect(() => {
-    const listener = (e) => {
+    const listener = (e: StorageEvent) => {
       if (e.storageArea === localStorage && e.key === "theme") {
         setIsLightOff(JSON.parse(e.newValue));
       }

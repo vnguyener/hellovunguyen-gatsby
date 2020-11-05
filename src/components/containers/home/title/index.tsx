@@ -5,7 +5,7 @@ import './style.scss';
 
 import TypeWriter from '../../../shared/type-writer';
 
-function useInterval(callback, delay) {
+function useInterval(callback: () => void, delay: number) {
   const savedCallback = useRef(null);
 
   // Remember the latest callback.
@@ -63,7 +63,7 @@ const Title = () => {
   return (
     <div className="writing-heading">
       <Typography variant="h5" className="name-heading">Hello, my name is Vu Nguyen</Typography>
-      <TypeWriter title={`and ${title}`} />
+      <TypeWriter text={`and ${title}`} />
     </div>
   );
 };

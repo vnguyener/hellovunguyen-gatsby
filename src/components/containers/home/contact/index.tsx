@@ -3,8 +3,7 @@ import './style.scss';
 
 const Contact = () => {
   return (
-    <section id="contact-section">
-    </section>
+    <section id="contact-section" />
   );
 };
 

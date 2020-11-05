@@ -44,7 +44,7 @@ const LightSwitch = ({ onSwitch }) => {
         inputProps={{ 'aria-label': 'dark light mode switch'}}
       />
     </div>
-  )
+  );
 };
 
 export default LightSwitch;
