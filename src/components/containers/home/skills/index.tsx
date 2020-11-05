@@ -1,10 +1,11 @@
 import React from "react";
-import { useTheme } from "@material-ui/core/styles";
+import { useSelector } from "react-redux";
 import "./style.scss";
 
 const Skills = () => {
-  const theme = useTheme();
-  const highlightClass = `highlight ${theme.palette.type}`;
+  const isDarkMode = useSelector(state => state.app.isDarkMode);
+
+  const highlightClass = `highlight ${isDarkMode ? 'dark' : 'light'}`;
 
   return (
     <div className="">

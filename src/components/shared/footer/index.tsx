@@ -1,19 +1,18 @@
 import React from "react";
-import { useTheme } from "@material-ui/core";
+import { useSelector } from "react-redux";
 import "./style.scss";
 
 const SharedFooter = () => {
-  const theme = useTheme();
-  const themeType = theme.palette.type;
+  const isDarkMode = useSelector(state => state.app.isDarkMode);
 
   return (
     <div
-      className={`md-padding find-me layout-row layout-align-center-center ${themeType}`}
+      className={`md-padding find-me layout-row layout-align-center-center ${isDarkMode ? 'dark' : 'light'}`}
     >
       <div className={`layout-column icon-link`}>
         <div
           className={`icon-link-logo github ${
-            themeType === "dark" ? "light" : "dark"
+            isDarkMode ? "light" : "dark"
           }`}
         />
         <a
@@ -27,7 +26,7 @@ const SharedFooter = () => {
       <div className={`layout-column icon-link`}>
         <div
           className={`icon-link-logo linkedin ${
-            themeType === "dark" ? "light" : "dark"
+            isDarkMode ? "light" : "dark"
           }`}
         />
         <a

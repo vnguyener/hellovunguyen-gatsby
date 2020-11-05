@@ -1,9 +1,12 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
 import Switch from "@material-ui/core/Switch";
 import { withStyles } from "@material-ui/core/styles";
 import { blueGrey } from "@material-ui/core/colors";
 
-import useLocalStorageState from "@v/uselocalStorageState";
+import {
+  toggleDarkMode,
+} from "../../../store/actions/app";
 
 import "./style.scss";
 
@@ -21,11 +24,12 @@ const StyledSwitch = withStyles({
   track: {},
 })(Switch);
 
-const LightSwitch = ({ onSwitch }) => {
-  const [isLightOff, setIsLightOff] = useLocalStorageState("theme", false);
+const LightSwitch = ({ onSwitch } : { onSwitch: (boolean) => void }) => {
+  const dispatch = useDispatch();
+  const isDarkMode = useSelector(state => state.app.isDarkMode);
 
-  const handleLightSwitch = event => {
-    setIsLightOff(event.target.checked);
+  const handleLightSwitch = (event : React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(toggleDarkMode(event.target.checked));
     onSwitch(event.target.checked);
   };
 
@@ -47,7 +51,7 @@ const LightSwitch = ({ onSwitch }) => {
             </i>
           </span>
         }
-        checked={isLightOff}
+        checked={isDarkMode}
         onChange={handleLightSwitch}
         color="primary"
         inputProps={{ "aria-label": "dark light mode switch" }}

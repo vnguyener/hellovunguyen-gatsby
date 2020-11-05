@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { useTheme } from "@material-ui/core";
+import { useSelector } from "react-redux";
+
 import moment from "moment";
 import "./style.scss";
 
 const About = () => {
-  const theme = useTheme();
-  const highlightClass = `highlight ${theme.palette.type}`;
+  const isDarkMode = useSelector(state => state.app.isDarkMode);
+  const highlightClass = `highlight ${isDarkMode ? 'dark' : 'light'}`;
   const [position] = useState("Senior Software Engineer");
   const [experience] = useState(moment().diff("2013-09-17", "years"));
 

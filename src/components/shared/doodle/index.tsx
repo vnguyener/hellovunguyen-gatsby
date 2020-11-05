@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { useTheme } from "@material-ui/core";
 import { useMediaQuery } from "@material-ui/core";
 import "./style.scss";
 
 const SelfDoodle = () => {
+  // store props
+  const isDarkMode = useSelector(state => state.app.isDarkMode);
+  
   const theme = useTheme();
-  const themeType = theme.palette.type;
   const matchesSmall = useMediaQuery(theme.breakpoints.down("sm"));
 
   const [selfDoodleType, setSelfDoodleType] = useState("open");
@@ -29,10 +32,14 @@ const SelfDoodle = () => {
 
   return (
     <div className={`self-doodle-container ${matchesSmall ? "vertical" : ""}`}>
-      {themeType === "dark" && <div className="trapezoid" />}
-      {themeType === "dark" && <div className="circle left" />}
-      {themeType === "dark" && <div className="circle right" />}
-      <div className={`self-doodle ${themeType} ${selfDoodleType}`} />
+      {isDarkMode && (
+        <>
+          <div className="trapezoid" />
+          <div className="circle left" />
+          <div className="circle right" />
+        </>
+      )}
+      <div className={`self-doodle ${isDarkMode ? 'dark' : 'light'} ${selfDoodleType}`} />
     </div>
   );
 };

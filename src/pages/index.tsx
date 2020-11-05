@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { CssBaseline, createMuiTheme } from "@material-ui/core";
 import { ThemeProvider } from "@material-ui/styles";
+
+import { toggleDarkMode } from "../store/actions/app";
 
 // routes
 import HomePage from "../components/containers/home";
@@ -24,6 +27,8 @@ const lightTheme = createMuiTheme({
 });
 
 const IndexPage = () => {
+  const dispatch = useDispatch();
+
   const [isLightOff, setIsLightOff] = useState(
     typeof window !== "undefined" &&
       window.localStorage &&
@@ -37,8 +42,16 @@ const IndexPage = () => {
   };
 
   useEffect(() => {
+    dispatch(toggleDarkMode(typeof window !== "undefined" &&
+      window.localStorage &&
+      window.localStorage.getItem("theme")
+      ? JSON.parse(window.localStorage.getItem("theme") || "{}")
+      : false)
+    );
+
     const listener = (e: StorageEvent) => {
       if (e.storageArea === localStorage && e.key === "theme") {
+        dispatch(toggleDarkMode(JSON.parse(e.newValue)));
         setIsLightOff(JSON.parse(e.newValue));
       }
     };
