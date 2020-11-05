@@ -1,16 +1,12 @@
 
-// @flow
 import React, { useState, useEffect, useRef } from 'react';
 import Typography from "@material-ui/core/Typography";
 import './style.scss';
 
 import TypeWriter from '../../../shared/type-writer';
 
-import type { Element } from 'react';
-
-
 function useInterval(callback, delay) {
-  const savedCallback = useRef();
+  const savedCallback = useRef(null);
 
   // Remember the latest callback.
   useEffect(() => {
@@ -20,16 +16,16 @@ function useInterval(callback, delay) {
   // Set up the interval.
   useEffect(() => {
     function tick() {
-      if (savedCallback && savedCallback.current) savedCallback.current();
+      if (savedCallback && typeof savedCallback.current === 'function') savedCallback.current();
     }
     if (delay !== null) {
       let id = setInterval(tick, delay);
       return () => clearInterval(id);
     }
-  }, [delay]);
+  }, [delay, savedCallback]);
 }
 
-const Title = (): Element<any> => {
+const Title = () => {
   const titles = [
     'I\'m closing my stackoverflow tabs.',
     'I\'m probably busy playing Animal Crossing.',

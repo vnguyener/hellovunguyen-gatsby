@@ -1,13 +1,10 @@
 
-// @flow
 import React, { useState } from 'react';
 import { useTheme } from "@material-ui/core";
 import moment from 'moment'
 import './style.scss';
 
-import type { Element } from 'react';
-
-const About = (): Element<any> => { 
+const About = () => { 
   const theme = useTheme();
   const highlightClass = `highlight ${theme.palette.type}`;
   const [position] = useState('Senior Software Engineer');

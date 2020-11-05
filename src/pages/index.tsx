@@ -1,5 +1,4 @@
 
-// @flow
 import React, { useEffect, useState } from "react";
 import { CssBaseline, createMuiTheme } from "@material-ui/core";
 import { ThemeProvider } from "@material-ui/styles";
@@ -12,7 +11,6 @@ import SEO from "../components/shared/seo"
 import LightSwitch from '../components/shared/light-switch';
 import Footer from "../components/shared/footer";
 import '../assets/index.scss';
-import type { Element } from 'react';
 
 const darkTheme = createMuiTheme({
   palette: {
@@ -26,7 +24,7 @@ const lightTheme = createMuiTheme({
   }
 });
 
-const IndexPage = (): Element<any> => {
+const IndexPage = () => {
   const [isLightOff, setIsLightOff] = useState(localStorage.getItem("theme") ? JSON.parse(localStorage.getItem("theme") || '{}') : false);
 
   const getTheme = (res) => {

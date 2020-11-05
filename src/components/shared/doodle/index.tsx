@@ -2,9 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useTheme } from '@material-ui/core';
 import { useMediaQuery } from '@material-ui/core';
 import './style.scss';
-import type { Element } from 'react';
 
-const SelfDoodle = (): Element<any> => {
+const SelfDoodle = () => {
   const theme = useTheme();
   const themeType = theme.palette.type;
   const matchesSmall = useMediaQuery(theme.breakpoints.down('sm'));

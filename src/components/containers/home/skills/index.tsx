@@ -1,11 +1,8 @@
-// @flow
 import React from 'react';
 import { useTheme } from '@material-ui/core/styles';
 import './style.scss';
 
-import type { Element } from 'react';
-
-const Skills = (): Element<any> => {
+const Skills = () => {
   const theme = useTheme();
   const highlightClass = `highlight ${theme.palette.type}`;
 

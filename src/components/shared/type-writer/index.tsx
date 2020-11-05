@@ -1,10 +1,8 @@
-// @flow
 import React from 'react';
 import PropTypes from 'prop-types';
 import './style.scss';
-import type { Element } from 'react';
 
-const TypeWriter = ({ title } : { title: string }): Element<any> => {
+const TypeWriter = ({ title }) => {
   return (
     <span className="typewriter">
       {title}

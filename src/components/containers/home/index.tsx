@@ -1,4 +1,3 @@
-// @flow
 import React from 'react';
 import { useTheme } from "@material-ui/core";
 import About from './about'
@@ -7,9 +6,7 @@ import Skills from './skills'
 import SelfDoodle from "../../shared/doodle";
 import './style.scss';
 
-import type { Element } from 'react';
-
-const Home = (): Element<any> => {
+const Home = () => {
   const theme = useTheme();
   const themeType = theme.palette.type;
 
