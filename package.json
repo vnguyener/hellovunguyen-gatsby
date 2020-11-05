@@ -11,7 +11,9 @@
     "start": "yarn develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "aws:deploy": "aws s3 sync build/ s3://hellovunguyen.com --delete",
+    "aws:clear": "aws cloudfront create-invalidation --distribution-id=E22ISNR3Q0E4MP --paths /*"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
@@ -28,7 +30,7 @@
     "gatsby-source-filesystem": "^2.3.37",
     "gatsby-transformer-sharp": "^2.5.20",
     "moment": "^2.29.1",
-    "node-sass": "4.14.1",
+    "node-sass": "5.0.0",
     "prop-types": "^15.7.2",
     "react": "17.0.1",
     "react-dom": "^17.0.1",
