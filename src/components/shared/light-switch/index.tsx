@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Switch from "@material-ui/core/Switch";
 import { withStyles } from "@material-ui/core/styles";
 import { blueGrey } from "@material-ui/core/colors";
+import useLocalStorageState from "@v/uselocalStorageState";
 
 import {
   toggleDarkMode,
@@ -26,10 +27,12 @@ const StyledSwitch = withStyles({
 
 const LightSwitch = ({ onSwitch } : { onSwitch: (boolean) => void }) => {
   const dispatch = useDispatch();
+  const [isLightOff, setIsLightOff] = useLocalStorageState("theme", false);
   const isDarkMode = useSelector(state => state.app.isDarkMode);
 
   const handleLightSwitch = (event : React.ChangeEvent<HTMLInputElement>) => {
     dispatch(toggleDarkMode(event.target.checked));
+    setIsLightOff(event.target.checked);
     onSwitch(event.target.checked);
   };
 
