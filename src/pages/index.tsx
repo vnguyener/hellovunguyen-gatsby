@@ -1,48 +1,51 @@
-
-import React, { useEffect, useState } from "react";
-import { CssBaseline, createMuiTheme } from "@material-ui/core";
-import { ThemeProvider } from "@material-ui/styles";
+import React, { useEffect, useState } from "react"
+import { CssBaseline, createMuiTheme } from "@material-ui/core"
+import { ThemeProvider } from "@material-ui/styles"
 
 // routes
-import HomePage from "../components/containers/home";
+import HomePage from "../components/containers/home"
 
 // shared
-import SEO from "../components/shared/seo";
-import LightSwitch from '../components/shared/light-switch';
-import Footer from "../components/shared/footer";
-import '../assets/index.scss';
+import SEO from "../components/shared/seo"
+import LightSwitch from "../components/shared/light-switch"
+import Footer from "../components/shared/footer"
+import "../assets/index.scss"
 
 const darkTheme = createMuiTheme({
   palette: {
     type: "dark",
   },
-});
+})
 
 const lightTheme = createMuiTheme({
   palette: {
-    type: "light"
-  }
-});
+    type: "light",
+  },
+})
 
 const IndexPage = () => {
-  const [isLightOff, setIsLightOff] = useState(localStorage.getItem("theme") ? JSON.parse(localStorage.getItem("theme") || '{}') : false);
+  const [isLightOff, setIsLightOff] = useState(
+    localStorage.getItem("theme")
+      ? JSON.parse(localStorage.getItem("theme") || "{}")
+      : false
+  )
 
   const getTheme = (res: boolean) => {
-    setIsLightOff(res);
-  };
+    setIsLightOff(res)
+  }
 
   useEffect(() => {
     const listener = (e: StorageEvent) => {
       if (e.storageArea === localStorage && e.key === "theme") {
-        setIsLightOff(JSON.parse(e.newValue));
+        setIsLightOff(JSON.parse(e.newValue))
       }
-    };
+    }
 
-    window.addEventListener("storage", listener);
+    window.addEventListener("storage", listener)
     return () => {
-      window.removeEventListener("storage", listener);
-    };
-  }, []);
+      window.removeEventListener("storage", listener)
+    }
+  }, [])
 
   return (
     <ThemeProvider theme={isLightOff ? darkTheme : lightTheme}>
@@ -52,7 +55,7 @@ const IndexPage = () => {
       <HomePage />
       <Footer />
     </ThemeProvider>
-  );
-};
+  )
+}
 
-export default IndexPage;
+export default IndexPage

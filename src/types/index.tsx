@@ -1,3 +1,3 @@
 export interface TypeWriterProps {
-  text: string;
+  text: string
 }
