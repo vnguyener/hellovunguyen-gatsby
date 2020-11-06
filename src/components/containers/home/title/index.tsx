@@ -17,7 +17,7 @@ function useInterval(callback: () => void, delay: number) {
   // Set up the interval.
   useEffect(() => {
     function tick() {
-      if (savedCallback && typeof savedCallback.current === "function") {
+      if (savedCallback && savedCallback.current) {
         savedCallback.current();
       }
     }
@@ -25,11 +25,12 @@ function useInterval(callback: () => void, delay: number) {
       const id = setInterval(tick, delay);
       return () => clearInterval(id);
     }
-  }, [delay, savedCallback]);
+  }, [delay]);
 }
 
 const Title = () => {
   const titles = [
+    "I'm a Software Engineer",
     "I'm closing my stackoverflow tabs.",
     "I'm probably busy playing Animal Crossing.",
     "I code cool websites.",
@@ -47,19 +48,19 @@ const Title = () => {
 
   const [title, setTitle] = useState("");
   const [index, setIndex] = useState(0);
+  let intervalIndex = index;
 
   useInterval(() => {
-    let intervalIndex = index;
     changeTitle(titles[index]);
     setIndex(intervalIndex++);
 
     if (index >= titles.length) {
-      changeTitle("I'm a Software Engineer");
+      changeTitle(titles[0]);
       setIndex(0);
     }
   }, 750);
 
-  const changeTitle = title => {
+  const changeTitle = (title: string) => {
     setTitle(title);
   };
 
