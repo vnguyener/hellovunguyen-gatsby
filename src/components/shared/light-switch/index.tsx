@@ -1,23 +1,21 @@
-import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import Switch from "@material-ui/core/Switch";
-import { withStyles } from "@material-ui/core/styles";
-import { blueGrey } from "@material-ui/core/colors";
-import useLocalStorageState from "@v/uselocalStorageState";
+import React, { Props } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import Switch from '@material-ui/core/Switch';
+import { withStyles } from '@material-ui/core/styles';
+import { blueGrey } from '@material-ui/core/colors';
+import useLocalStorageState from '@v/uselocalStorageState';
 
-import {
-  toggleDarkMode,
-} from "../../../store/actions/app";
+import { toggleDarkMode } from '../../../store/actions/app';
 
-import "./style.scss";
+import './style.scss';
 
 const StyledSwitch = withStyles({
   switchBase: {
     color: blueGrey[100],
-    "&$checked": {
+    '&$checked': {
       color: blueGrey[500],
     },
-    "&$checked + $track": {
+    '&$checked + $track': {
       backgroundColor: blueGrey[500],
     },
   },
@@ -25,12 +23,12 @@ const StyledSwitch = withStyles({
   track: {},
 })(Switch);
 
-const LightSwitch = ({ onSwitch } : { onSwitch: (boolean) => void }) => {
+const LightSwitch = ({ onSwitch }: { onSwitch: (isSwitched: boolean) => void }): JSX.Element => {
   const dispatch = useDispatch();
-  const [isLightOff, setIsLightOff] = useLocalStorageState("theme", false);
+  const [, setIsLightOff] = useLocalStorageState('theme', false);
   const isDarkMode = useSelector(state => state.app.isDarkMode);
 
-  const handleLightSwitch = (event : React.ChangeEvent<HTMLInputElement>) => {
+  const handleLightSwitch = (event: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(toggleDarkMode(event.target.checked));
     setIsLightOff(event.target.checked);
     onSwitch(event.target.checked);
@@ -44,10 +42,10 @@ const LightSwitch = ({ onSwitch } : { onSwitch: (boolean) => void }) => {
             <i
               className="material-icons"
               style={{
-                color: "#FFF",
-                fontSize: "12px",
-                position: "relative",
-                top: "-12px",
+                color: '#FFF',
+                fontSize: '12px',
+                position: 'relative',
+                top: '-12px',
               }}
             >
               brightness_3
@@ -57,7 +55,7 @@ const LightSwitch = ({ onSwitch } : { onSwitch: (boolean) => void }) => {
         checked={isDarkMode}
         onChange={handleLightSwitch}
         color="primary"
-        inputProps={{ "aria-label": "dark light mode switch" }}
+        inputProps={{ 'aria-label': 'dark light mode switch' }}
       />
     </div>
   );

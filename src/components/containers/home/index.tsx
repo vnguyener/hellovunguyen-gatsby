@@ -1,13 +1,13 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React from 'react';
+import { useSelector } from 'react-redux';
 
-import About from "./about";
-import Title from "./title";
-import Skills from "./skills";
-import SelfDoodle from "../../shared/doodle";
-import "./style.scss";
+import About from './about';
+import Title from './title';
+import Skills from './skills';
+import SelfDoodle from '../../shared/doodle';
+import './style.scss';
 
-const Home = () => {
+const Home = (): JSX.Element => {
   const isDarkMode = useSelector(state => state.app.isDarkMode);
 
   return (

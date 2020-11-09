@@ -1,8 +1,8 @@
-import React from "react";
-import { useSelector } from "react-redux";
-import "./style.scss";
+import React from 'react';
+import { useSelector } from 'react-redux';
+import './style.scss';
 
-const Skills = () => {
+const Skills = (): JSX.Element => {
   const isDarkMode = useSelector(state => state.app.isDarkMode);
 
   const highlightClass = `highlight ${isDarkMode ? 'dark' : 'light'}`;

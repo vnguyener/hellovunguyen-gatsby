@@ -2,7 +2,7 @@ const TOGGLE_DARKMODE = 'TOGGLE_DARKMODE';
 
 const initialState = {
   isDarkMode: false,
-}
+};
 
 export default (state = initialState, action) => {
   switch (action.type) {
@@ -11,4 +11,4 @@ export default (state = initialState, action) => {
     default:
       return state;
   }
-}
+};

@@ -1,40 +1,38 @@
-import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { CssBaseline, createMuiTheme } from "@material-ui/core";
-import { ThemeProvider } from "@material-ui/styles";
+import React, { Props, useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { CssBaseline, createMuiTheme } from '@material-ui/core';
+import { ThemeProvider } from '@material-ui/styles';
 
-import { toggleDarkMode } from "../store/actions/app";
+import { toggleDarkMode } from '../store/actions/app';
 
 // routes
-import HomePage from "../components/containers/home";
+import HomePage from '../components/containers/home';
 
 // shared
-import SEO from "../components/shared/seo";
-import LightSwitch from "../components/shared/light-switch";
-import Footer from "../components/shared/footer";
-import "../assets/index.scss";
+import SEO from '../components/shared/seo';
+import LightSwitch from '../components/shared/light-switch';
+import Footer from '../components/shared/footer';
+import '../assets/index.scss';
 
 const darkTheme = createMuiTheme({
   palette: {
-    type: "dark",
+    type: 'dark',
   },
 });
 
 const lightTheme = createMuiTheme({
   palette: {
-    type: "light",
+    type: 'light',
   },
 });
 
-const IndexPage = () => {
+const IndexPage: React.FunctionComponent<Props<any>> = () => {
   const dispatch = useDispatch();
 
   const [isLightOff, setIsLightOff] = useState(
-    typeof window !== "undefined" &&
-      window.localStorage &&
-      window.localStorage.getItem("theme")
-      ? JSON.parse(window.localStorage.getItem("theme") || "{}")
-      : false
+    typeof window !== 'undefined' && window.localStorage && window.localStorage.getItem('theme')
+      ? JSON.parse(window.localStorage.getItem('theme') || '{}')
+      : false,
   );
 
   const getTheme = (res: boolean) => {
@@ -42,23 +40,24 @@ const IndexPage = () => {
   };
 
   useEffect(() => {
-    dispatch(toggleDarkMode(typeof window !== "undefined" &&
-      window.localStorage &&
-      window.localStorage.getItem("theme")
-      ? JSON.parse(window.localStorage.getItem("theme") || "{}")
-      : false)
+    dispatch(
+      toggleDarkMode(
+        typeof window !== 'undefined' && window.localStorage && window.localStorage.getItem('theme')
+          ? JSON.parse(window.localStorage.getItem('theme') || '{}')
+          : false,
+      ),
     );
 
     const listener = (e: StorageEvent) => {
-      if (e.storageArea === localStorage && e.key === "theme") {
+      if (e.storageArea === localStorage && e.key === 'theme' && e.newValue) {
         dispatch(toggleDarkMode(JSON.parse(e.newValue)));
         setIsLightOff(JSON.parse(e.newValue));
       }
     };
 
-    window.addEventListener("storage", listener);
+    window.addEventListener('storage', listener);
     return () => {
-      window.removeEventListener("storage", listener);
+      window.removeEventListener('storage', listener);
     };
   }, []);
 

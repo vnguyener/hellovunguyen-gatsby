@@ -1,19 +1,19 @@
-import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { useTheme } from "@material-ui/core";
-import { useMediaQuery } from "@material-ui/core";
-import "./style.scss";
+import React, { Props, useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { useTheme } from '@material-ui/core';
+import { useMediaQuery } from '@material-ui/core';
+import './style.scss';
 
-const SelfDoodle = () => {
+const SelfDoodle: React.FunctionComponent<Props<any>> = () => {
   // store props
   const isDarkMode = useSelector(state => state.app.isDarkMode);
-  
+
   const theme = useTheme();
-  const matchesSmall = useMediaQuery(theme.breakpoints.down("sm"));
+  const matchesSmall = useMediaQuery(theme.breakpoints.down('sm'));
 
-  const [selfDoodleType, setSelfDoodleType] = useState("open");
+  const [selfDoodleType, setSelfDoodleType] = useState('open');
 
-  const randomSecond = (min, max) => {
+  const randomSecond = (min: number, max: number) => {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min)) * 1000;
@@ -21,8 +21,8 @@ const SelfDoodle = () => {
 
   useEffect(() => {
     const timeout = setTimeout(
-      () => setSelfDoodleType(selfDoodleType === "open" ? "blink" : "open"),
-      selfDoodleType === "open" ? randomSecond(1, 6) : 700
+      () => setSelfDoodleType(selfDoodleType === 'open' ? 'blink' : 'open'),
+      selfDoodleType === 'open' ? randomSecond(1, 6) : 700,
     );
 
     return () => {
@@ -31,7 +31,7 @@ const SelfDoodle = () => {
   }, [selfDoodleType]);
 
   return (
-    <div className={`self-doodle-container ${matchesSmall ? "vertical" : ""}`}>
+    <div className={`self-doodle-container ${matchesSmall ? 'vertical' : ''}`}>
       {isDarkMode && (
         <>
           <div className="trapezoid" />

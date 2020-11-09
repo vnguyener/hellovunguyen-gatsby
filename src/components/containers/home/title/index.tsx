@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef } from "react";
-import Typography from "@material-ui/core/Typography";
-import "./style.scss";
+import React, { useState, useEffect, useRef } from 'react';
+import Typography from '@material-ui/core/Typography';
+import './style.scss';
 
-import TypeWriter from "../../../shared/type-writer";
+import TypeWriter from '../../../shared/type-writer';
 
 function useInterval(callback: () => void, delay: number) {
   const savedCallback = useRef(null);
@@ -28,25 +28,25 @@ function useInterval(callback: () => void, delay: number) {
   }, [delay]);
 }
 
-const Title = () => {
+const Title = (): JSX.Element => {
   const titles = [
     "I'm a Software Engineer",
     "I'm closing my stackoverflow tabs.",
     "I'm probably busy playing Animal Crossing.",
-    "I code cool websites.",
+    'I code cool websites.',
     "I'm lurking on dribbble.",
-    "I enjoy reading.",
+    'I enjoy reading.',
     "I'm busy reading Medium.",
-    "Javascript is <3.",
-    "I trail run.",
-    "I play tennis.",
-    "I hike.",
-    "I like to doodle.",
+    'Javascript is <3.',
+    'I trail run.',
+    'I play tennis.',
+    'I hike.',
+    'I like to doodle.',
     "I'm browsing Reddit.",
     "I'm pouring coffee (that I'll forget to drink)",
   ];
 
-  const [title, setTitle] = useState("");
+  const [title, setTitle] = useState('');
   const [index, setIndex] = useState(0);
   let intervalIndex = index;
 

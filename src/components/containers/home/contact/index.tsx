@@ -1,7 +1,7 @@
-import React from "react";
-import "./style.scss";
+import React from 'react';
+import './style.scss';
 
-const Contact = () => {
+const Contact = (): JSX.Element => {
   return <section id="contact-section" />;
 };
 
