@@ -24,19 +24,14 @@ const Skills = (): JSX.Element => {
           <li>
             <mark className={`${highlightClass} fade`}>Node.js</mark>
           </li>
-          <li>Angular.js 1.x</li>
-          <li>Angular 2+</li>
-          <li>Angular Material</li>
+          <li>Styled Components</li>
+          <li>Angular</li>
           <li>
             <mark className={`${highlightClass} fade`}>Express.js</mark>
           </li>
           <li>Vue.js</li>
           <li>Coffeescript</li>
-          <li>Knockout.js</li>
-          <li>RequireJS</li>
           <li>jQuery / jQuery UI</li>
-          <li>d3.js</li>
-          <li>Chartist.js</li>
           <li>
             <i> etc.</i>
           </li>
@@ -49,13 +44,11 @@ const Skills = (): JSX.Element => {
           <li>
             <mark className={`${highlightClass}`}>Jenkins</mark>
           </li>
+          <li>ESLint</li>
+          <li>Flow</li>
           <li>
-            <mark className={`${highlightClass} fade`}>ESLint</mark>
+            <mark className={`${highlightClass} fade`}>Typescript</mark>
           </li>
-          <li>
-            <mark className={`${highlightClass}`}>Flow</mark>
-          </li>
-          <li>Typescript</li>
           <li>&nbsp;</li>
           <li>Microsoft SQL</li>
           <li>
@@ -83,13 +76,11 @@ const Skills = (): JSX.Element => {
         </ul>
         <ul>
           <li>
-            <mark className={highlightClass}>C#</mark>
+            <mark className={highlightClass}>C#/.NET</mark>
           </li>
           <li>Python</li>
           <li>HTML 5</li>
-          <li>
-            <mark className={highlightClass}>Sass</mark>
-          </li>
+          <li>Sass</li>
           <li>Less</li>
           <li>Stylus</li>
           <li>CSS</li>

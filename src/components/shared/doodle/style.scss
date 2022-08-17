@@ -12,37 +12,25 @@
   }
 
   .self-doodle {
+    height: inherit;
+    width: inherit;
+    background-repeat: no-repeat;
+    background-size: contain !important;
     &.open {
       &.dark {
         background: url(../../../images/shared/open_dark.png);
-        background-repeat: no-repeat;
-        height: -webkit-fill-available;
-        width: -webkit-fill-available;
-        background-size: contain;
       }
       &.light {
-          background: url(../../../images/shared/open_light.png);
-          background-repeat: no-repeat;
-          height: -webkit-fill-available;
-          width: -webkit-fill-available;
-          background-size: contain;
+        background: url(../../../images/shared/open_light.png);
       }
     }
 
     &.blink {
       &.dark {
         background: url(../../../images/shared/blink_dark.png);
-        background-repeat: no-repeat;
-        height: -webkit-fill-available;
-        width: -webkit-fill-available;
-        background-size: contain;
       }
       &.light {
-          background: url(../../../images/shared/blink_light.png);
-          background-repeat: no-repeat;
-          height: -webkit-fill-available;
-          width: -webkit-fill-available;
-          background-size: contain;
+        background: url(../../../images/shared/blink_light.png);
       }
     }
   }
@@ -70,7 +58,6 @@
       transform: skewX(-30deg) rotate(-60deg) translate(-1.25em);
     }
   }
-  
 
   .circle {
     height: 55px;
